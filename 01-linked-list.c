@@ -8,27 +8,32 @@
 /** a linked list node */
 struct Node {
 	int data;
-	struct Node* next;
+	struct Node *next;
 };
 
 /**
- * printList - prints contents of linked list starting from the given node (Traverse a list)
- * @n: the given node
+ * printList - traverse linked list starting from the given node
+ * @node: the given node
  */
-void printList(struct Node* n)
+void printList(struct Node *node)
 {
-	while (n != NULL)
+	while (node != NULL)
 	{
-		printf(" %d ", n->data);
-		n = n->next;
+		printf(" %d ", node->data);
+		node = node->next;
 	}
 }
 
+
+/**
+ * main - entry point
+ * Return: always 0
+ */
 int main(void)
 {
-	struct Node* head = NULL;
-	struct Node* second = NULL;
-	struct Node* third = NULL;
+	struct Node *head = NULL;
+	struct Node *second = NULL;
+	struct Node *third = NULL;
 
 	/** allocate 3 nodes in the heap */
 	head = malloc(sizeof(struct Node));
@@ -38,7 +43,7 @@ int main(void)
 	/**
 	 * Three blocks have been allocated dynamically.
 	 * We have pointers to these three blocks as head, second and third
-	 * Data is random because we haven't assigned anything yet 
+	 * Data is random because we haven't assigned anything yet
 	 */
 	head->data = 1; /** assign data in first node */
 	head->next = second; /** link first node with the second node */
@@ -51,7 +56,6 @@ int main(void)
 
 	/** traverse of a linked list */
 	printList(head);
-
 
 	return (0);
 }
